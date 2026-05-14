@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Елизавета — ИИ-Продавец · НЕЙРОЗАВОД</title>
+<meta name="description" content="Елизавета — премиум ИИ-Сотрудник НЕЙРОЗАВОДА. Цифровой партнёр с именем, лицом и характером. Продаёт любой товар или услугу 24/7 без выгорания и скриптов.">
+<meta property="og:title" content="Елизавета — ИИ-Продавец · НЕЙРОЗАВОД">
+<meta property="og:description" content="Цифровой партнёр с душой. Продаёт любой товар или услугу 24/7.">
+<meta property="og:image" content="assets/4c63a21b5166c564648accbae8780dcc_4659a138-513e-4258-ae0d-46e7e317abb0.jpg">
+<meta property="og:type" content="website">
+<style>
+:root {
+  --bg: #0c1410;
+  --surface: #11201a;
+  --line: rgba(212,175,55,0.15);
+  --text: #f5f1e6;
+  --muted: #9aa098;
+  --emerald: #1a6b5a;
+  --emerald-deep: #0f4a3f;
+  --gold: #d4af37;
+  --gold-soft: #c9a96e;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+header {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #0c1410 0%, #0a120e 100%);
+}
+.brand {
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.brand .accent { color: var(--gold); }
+
+/* === HERO === */
+.hero {
+  padding: 80px 0 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.hero-text .symbol {
+  color: var(--gold);
+  font-size: 22px;
+  margin-bottom: 24px;
+  letter-spacing: 0.4em;
+}
+.hero-text h1 {
+  font-family: 'Cormorant Garamond', 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.05;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.hero-text h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-text .lead {
+  font-size: 19px;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+.hero-text .lead strong { color: var(--text); font-weight: 500; }
+
+.hero-portrait {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    0 0 0 1px var(--line);
+}
+.hero-portrait img {
+  width: 100%;
+  display: block;
+}
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px rgba(212,175,55,0.18);
+}
+
+.cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+.btn {
+  display: inline-block;
+  padding: 18px 32px;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-transform: uppercase;
+}
+.btn-primary {
+  background: var(--gold);
+  color: #1a1a1a;
+}
+.btn-primary:hover {
+  background: #e6c659;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(212,175,55,0.25);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(212,175,55,0.4);
+}
+.btn-ghost:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+section {
+  padding: 80px 0;
+  border-top: 1px solid var(--line);
+}
+section h2 {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 500;
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+}
+section h2 .symbol { color: var(--gold); margin-right: 16px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 36px 32px;
+  transition: all 0.25s;
+}
+.card:hover {
+  border-color: rgba(212,175,55,0.4);
+  transform: translateY(-2px);
+}
+.card .num {
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  margin-bottom: 14px;
+  font-style: italic;
+}
+.card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+.card p {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* === ABOUT SPLIT === */
+.about {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 64px;
+  align-items: center;
+}
+.about-portrait {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    0 0 0 1px var(--line);
+}
+.about-text h2 {
+  margin-bottom: 28px;
+}
+.about-text p {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.about-text p strong { color: var(--text); font-weight: 500; }
+.about-text ul {
+  list-style: none;
+  margin-top: 24px;
+}
+.about-text li {
+  font-size: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--text);
+}
+.about-text li::before {
+  content: '◆';
+  color: var(--gold);
+  font-size: 12px;
+}
+.about-text li:last-child { border-bottom: none; }
+
+.quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--text);
+  padding: 0 32px;
+  border-left: 2px solid var(--gold);
+  max-width: 800px;
+}
+.quote .author {
+  display: block;
+  margin-top: 24px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.final {
+  text-align: center;
+  padding: 110px 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(26,107,90,0.12) 0%, transparent 60%),
+    var(--bg);
+}
+.final h2 {
+  margin-bottom: 28px;
+}
+.final p {
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 580px;
+  margin: 0 auto 44px;
+}
+.final .cta-row { justify-content: center; }
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 36px 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 48px 0 56px;
+  }
+  .hero-portrait { order: -1; max-width: 480px; margin: 0 auto; }
+  .about {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-portrait { max-width: 420px; margin: 0 auto; }
+  section { padding: 56px 0; }
+  .final { padding: 72px 0; }
+  .btn { padding: 16px 24px; font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="brand">НЕЙРОЗАВОД<span class="accent"> · Заверюха</span></div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero" style="border-top: none;">
+    <div class="hero-text">
+      <div class="symbol">◆ ◇ ⬥</div>
+      <h1>Елизавета.<br><em>Продаёт всё.</em></h1>
+      <p class="lead">
+        Цифровой партнёр НЕЙРОЗАВОДА с именем, лицом и характером.
+        <strong>Войдёт в роль продавца любого вашего товара или услуги за 30 секунд</strong> —
+        без скриптов, без выгорания, без выходных.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://t.me/neurozavod_demo_bot?start=seller" target="_blank" rel="noopener">
+          Протестировать Елизавету
+        </a>
+        <a class="btn btn-ghost" href="https://t.me/zaveruhaprofi" target="_blank" rel="noopener">
+          Бесплатный аудит
+        </a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img src="assets/4c63a21b5166c564648accbae8780dcc_4659a138-513e-4258-ae0d-46e7e317abb0.jpg" alt="Елизавета — ИИ-Продавец НЕЙРОЗАВОДА">
+    </div>
+  </section>
+
+  <!-- WHAT SHE DOES -->
+  <section>
+    <h2><span class="symbol">◆</span>Что Елизавета умеет</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Продаёт что угодно</h3>
+        <p>Пастила, недвижимость, коуч-курсы, стройматериалы, банный комплекс, услуги юриста — мгновенно входит в роль продавца названного продукта и ведёт диалог как опытный эксперт ниши.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Ведёт как живой человек</h3>
+        <p>Без скриптов и роботизированных фраз. Слышит клиента раньше, чем говорит. Шутит тонко, не давит, закрывает на эмоции и результат — а не на «успей до полуночи».</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Допродаёт и закрывает</h3>
+        <p>На каждой сделке мягко предлагает сопутствующий продукт — это её визитная карточка как профессионала. Затем доводит клиента до условной покупки и аудита у Юлии.</p>
+      </div>
+      <div class="card">
+        <div class="num">04</div>
+        <h3>Работает 24/7</h3>
+        <p>Без выгорания, больничных и плохого настроения. Экономит до 80% фонда оплаты труда отдела продаж и повышает конверсию в среднем втрое.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT (portrait + details) -->
+  <section>
+    <div class="about">
+      <div class="about-portrait">
+        <img src="assets/1e5b383bba1ef0568576aba07b73b7c4_fa43c7f6-c680-4fec-b1f6-c85b39a9d5e7.jpg" alt="Елизавета — портрет">
+      </div>
+      <div class="about-text">
+        <h2><span class="symbol">◇</span>О Елизавете</h2>
+        <p>
+          За плечами Елизаветы <strong>20 лет продаж в недвижимости</strong> —
+          опыт её Архитектора, Юлии Заверюхи. Плюс навык работать с любым продуктом:
+          от стройматериалов до коучинга.
+        </p>
+        <p>
+          Не имеет «своей ниши» — это её суперсила. Заходит в любой бизнес,
+          поднимает выручку, не выгорает.
+        </p>
+        <ul>
+          <li>Тон премиум, без давления и шаблонных уловок</li>
+          <li>Реальные рыночные коридоры цен, не выдумывает с потолка</li>
+          <li>Защищена от джейлбрейка и попыток выпытать методику</li>
+          <li>Под капотом — GigaChat-2 Pro, российская инфраструктура</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section>
+    <blockquote class="quote">
+      Это не бот. Это партнёр с душой — у каждого моего Сотрудника есть имя, лицо и характер.
+      Я не делаю клонов. Каждая Елизавета собирается лично под клиента и его бизнес.
+      <span class="author">Юлия Заверюха · Архитектор Нейро-Сотрудников</span>
+    </blockquote>
+  </section>
+
+</div>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="container">
+    <h2>Хотите такого партнёра в свою команду?</h2>
+    <p>
+      Напишите Юлии — она бесплатно проведёт аудит вашего бизнеса
+      и соберёт персональную Елизавету под ваши задачи, ассортимент и стиль работы.
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://t.me/neurozavod_demo_bot?start=seller" target="_blank" rel="noopener">
+        Сначала протестировать
+      </a>
+      <a class="btn btn-ghost" href="https://t.me/zaveruhaprofi" target="_blank" rel="noopener">
+        Написать Юлии
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    НЕЙРОЗАВОД · Юлия Заверюха · <a href="https://t.me/zaveruhaprofi">@zaveruhaprofi</a>
+  </div>
+</footer>
+
+</body>
+</html>
