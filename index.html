@@ -285,50 +285,103 @@ header .container {
 }
 
 section {
-  padding: 80px 0;
+  padding: 90px 0;
   border-top: 1px solid var(--line);
 }
 section h2 {
-  font-family: 'Cormorant Garamond', 'Georgia', serif;
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 500;
-  margin-bottom: 48px;
-  letter-spacing: -0.01em;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(32px, 4.5vw, 52px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
 }
-section h2 .symbol { color: var(--gold); margin-right: 16px; }
+section h2 .symbol { color: var(--gold); margin-right: 12px; }
+section h2 em {
+  font-style: normal;
+  color: var(--gold);
+}
+section .section-lead {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 56px;
+  max-width: 640px;
+}
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
 }
+@media (max-width: 700px) {
+  .cards { grid-template-columns: 1fr; }
+}
 .card {
-  background: var(--surface);
+  background: linear-gradient(180deg, var(--surface) 0%, rgba(15,74,63,0.08) 100%);
   border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 36px 32px;
+  border-radius: 8px;
+  padding: 40px 36px;
   transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.3s ease;
 }
 .card:hover {
-  border-color: rgba(212,175,55,0.4);
-  transform: translateY(-2px);
+  border-color: rgba(212,175,55,0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.4);
 }
-.card .num {
+.card:hover::before { height: 100%; }
+.card .card-stat {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
   color: var(--gold);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 34px;
-  margin-bottom: 14px;
-  font-style: italic;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.card .card-stat-unit {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--muted);
+  margin-left: 4px;
+  letter-spacing: 0;
+}
+.card .card-tag {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  opacity: 0.85;
 }
 .card h3 {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 14px;
   color: var(--text);
+  letter-spacing: -0.01em;
 }
 .card p {
   font-size: 15px;
   color: var(--muted);
+  line-height: 1.6;
 }
 
 /* === ABOUT SPLIT === */
@@ -507,29 +560,41 @@ footer a { color: var(--gold); text-decoration: none; }
   </section>
 
   <!-- WHAT SHE DOES -->
-  <section>
-    <h2><span class="symbol">◆</span>Что Елизавета умеет</h2>
+  <section id="skills">
+    <h2>Что я <em>умею</em></h2>
+    <p class="section-lead">
+      Четыре вещи, которые я делаю лучше живого продавца — потому что не устаю, не забываю и не работаю по скрипту.
+    </p>
     <div class="cards">
+
       <div class="card">
-        <div class="num">01</div>
-        <h3>Продаёт что угодно</h3>
-        <p>Пастила, недвижимость, коуч-курсы, стройматериалы, банный комплекс, услуги юриста — мгновенно входит в роль продавца названного продукта и ведёт диалог как опытный эксперт ниши.</p>
+        <span class="card-tag">◆ Универсальность</span>
+        <div class="card-stat">∞ <span class="card-stat-unit">ниш</span></div>
+        <h3>Продам в любой нише</h3>
+        <p>Пастила, банный комплекс, недвижимость, коуч-курс, стройматериалы, услуги юриста — мгновенно вхожу в роль продавца названного продукта и веду диалог как опытный эксперт ниши.</p>
       </div>
+
       <div class="card">
-        <div class="num">02</div>
-        <h3>Ведёт как живой человек</h3>
-        <p>Без скриптов и роботизированных фраз. Слышит клиента раньше, чем говорит. Шутит тонко, не давит, закрывает на эмоции и результат — а не на «успей до полуночи».</p>
+        <span class="card-tag">◆ Живой тон</span>
+        <div class="card-stat">0 <span class="card-stat-unit">скриптов</span></div>
+        <h3>Говорю как человек</h3>
+        <p>Без роботизированных фраз и «давайте разберёмся». Слышу клиента раньше, чем говорю. Шучу тонко, не давлю, закрываю на эмоции и результат — а не на «успей до полуночи».</p>
       </div>
+
       <div class="card">
-        <div class="num">03</div>
-        <h3>Допродаёт и закрывает</h3>
-        <p>На каждой сделке мягко предлагает сопутствующий продукт — это её визитная карточка как профессионала. Затем доводит клиента до условной покупки и аудита у Юлии.</p>
+        <span class="card-tag">◆ Допродажа</span>
+        <div class="card-stat">+30% <span class="card-stat-unit">к чеку</span></div>
+        <h3>Закрываю с допродажей</h3>
+        <p>На каждой сделке мягко предлагаю сопутствующий продукт — это моя визитная карточка как профессионала. Поднимаю средний чек на 20–40% и довожу клиента до закрытия.</p>
       </div>
+
       <div class="card">
-        <div class="num">04</div>
-        <h3>Работает 24/7</h3>
-        <p>Без выгорания, больничных и плохого настроения. Экономит до 80% фонда оплаты труда отдела продаж и повышает конверсию в среднем втрое.</p>
+        <span class="card-tag">◆ Доступность</span>
+        <div class="card-stat">24/7 <span class="card-stat-unit">без выходных</span></div>
+        <h3>Работаю круглосуточно</h3>
+        <p>Без выгорания, больничных и плохого настроения. Экономлю до 80% фонда оплаты труда отдела продаж и повышаю конверсию в среднем втрое.</p>
       </div>
+
     </div>
   </section>
 
