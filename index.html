@@ -9,6 +9,9 @@
 <meta property="og:description" content="Цифровой партнёр с душой. Продаёт любой товар или услугу 24/7.">
 <meta property="og:image" content="assets/4c63a21b5166c564648accbae8780dcc_4659a138-513e-4258-ae0d-46e7e317abb0.jpg">
 <meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0c1410;
@@ -29,22 +32,89 @@ html, body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
+.font-display { font-family: 'Manrope', -apple-system, sans-serif; }
 img { display: block; max-width: 100%; height: auto; }
 .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
 header {
-  padding: 24px 0;
+  padding: 22px 0;
   border-bottom: 1px solid var(--line);
   background: linear-gradient(180deg, #0c1410 0%, #0a120e 100%);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 .brand {
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Manrope', sans-serif;
+  text-decoration: none;
+}
+.brand-mark {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+  border: 1px solid rgba(212,175,55,0.55);
+  border-radius: 6px;
+  color: var(--gold);
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  box-shadow: 0 6px 16px rgba(26,107,90,0.35), inset 0 0 0 1px rgba(212,175,55,0.15);
+}
+.brand-text {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.brand-text .name {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: var(--text);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.brand-text .sep {
+  color: var(--gold);
+  font-size: 14px;
+  line-height: 1;
+}
+.brand-text .surname {
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 700;
   letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.brand-tagline {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
   color: var(--muted);
   text-transform: uppercase;
-  font-weight: 500;
+  text-align: right;
 }
-.brand .accent { color: var(--gold); }
+@media (max-width: 720px) {
+  .brand-tagline { display: none; }
+  .brand-text { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .brand-text .sep { display: none; }
+  .brand-mark { width: 38px; height: 38px; font-size: 18px; }
+  .brand-text .name { font-size: 14px; letter-spacing: 0.14em; }
+  .brand-text .surname { font-size: 12px; letter-spacing: 0.18em; }
+}
 
 /* === HERO === */
 .hero {
@@ -54,51 +124,110 @@ header {
   gap: 64px;
   align-items: center;
 }
-.hero-text .symbol {
+.hero-text .demo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
   color: var(--gold);
-  font-size: 22px;
-  margin-bottom: 24px;
-  letter-spacing: 0.4em;
+  border: 1px solid rgba(212,175,55,0.4);
+  padding: 9px 18px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, rgba(26,107,90,0.12) 0%, rgba(212,175,55,0.05) 100%);
+}
+.demo-badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
 }
 .hero-text h1 {
-  font-family: 'Cormorant Garamond', 'Playfair Display', 'Georgia', serif;
-  font-size: clamp(40px, 5.5vw, 64px);
-  font-weight: 500;
-  line-height: 1.05;
-  margin-bottom: 28px;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 18px;
+  letter-spacing: -0.03em;
+  color: var(--text);
+}
+.hero-text h1 .name {
+  display: block;
+  font-size: clamp(44px, 6vw, 78px);
+  margin-bottom: 8px;
+  white-space: nowrap;
+}
+.hero-text h1 .role {
+  display: block;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.hero-text .slogan {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  margin-top: 32px;
+  margin-bottom: 16px;
   letter-spacing: -0.01em;
 }
-.hero-text h1 em {
-  font-style: italic;
+.hero-text .slogan .accent {
   color: var(--gold);
+  font-style: italic;
+  font-weight: 700;
 }
 .hero-text .lead {
-  font-size: 19px;
+  font-size: 17px;
   color: var(--muted);
-  margin-bottom: 40px;
+  margin-bottom: 36px;
+  margin-top: 28px;
+  max-width: 540px;
 }
-.hero-text .lead strong { color: var(--text); font-weight: 500; }
+.hero-text .lead p { margin-bottom: 14px; }
+.hero-text .lead p:last-child { margin-bottom: 0; }
+.hero-text .lead strong { color: var(--text); font-weight: 600; }
 
 .hero-portrait {
   position: relative;
   border-radius: 8px;
-  overflow: hidden;
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.5),
-    0 0 0 1px var(--line);
+  overflow: visible;
+  padding: 14px;
 }
 .hero-portrait img {
   width: 100%;
   display: block;
+  border-radius: 6px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.5),
+    0 0 0 1px rgba(212,175,55,0.18);
 }
-.hero-portrait::after {
-  content: '';
+.hero-portrait .corner {
   position: absolute;
-  inset: 0;
+  width: 28px;
+  height: 28px;
+  border-color: var(--gold);
+  border-style: solid;
+  border-width: 0;
   pointer-events: none;
-  border-radius: 8px;
-  box-shadow: inset 0 0 0 1px rgba(212,175,55,0.18);
+  opacity: 0.85;
 }
+.hero-portrait .corner.tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 4px; }
+.hero-portrait .corner.tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 4px; }
+.hero-portrait .corner.bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 4px; }
+.hero-portrait .corner.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 4px; }
 
 .cta-row {
   display: flex;
@@ -108,35 +237,51 @@ header {
   margin-top: 8px;
 }
 .btn {
-  display: inline-block;
-  padding: 18px 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 30px;
   border-radius: 4px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   cursor: pointer;
   border: none;
   text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
 }
+.btn .arrow {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.btn:hover .arrow { transform: translateX(4px); }
 .btn-primary {
-  background: var(--gold);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%);
+  color: var(--gold);
+  border: 1px solid rgba(212,175,55,0.45);
+  box-shadow: 0 8px 24px rgba(26,107,90,0.4), inset 0 1px 0 rgba(212,175,55,0.15);
 }
 .btn-primary:hover {
-  background: #e6c659;
-  transform: translateY(-1px);
-  box-shadow: 0 10px 30px rgba(212,175,55,0.25);
+  background: linear-gradient(135deg, #1f7d6a 0%, #114b40 100%);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(26,107,90,0.55), inset 0 1px 0 rgba(212,175,55,0.25);
 }
 .btn-ghost {
   background: transparent;
   color: var(--text);
-  border: 1px solid rgba(212,175,55,0.4);
+  border: 1px solid rgba(212,175,55,0.35);
 }
 .btn-ghost:hover {
   border-color: var(--gold);
   color: var(--gold);
+  background: rgba(212,175,55,0.04);
 }
 
 section {
@@ -303,7 +448,17 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <header>
   <div class="container">
-    <div class="brand">НЕЙРОЗАВОД<span class="accent"> · Заверюха</span></div>
+    <a href="#hero" class="brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-text">
+        <span class="name">Нейрозавод</span>
+        <span class="sep">·</span>
+        <span class="surname">Заверюха</span>
+      </span>
+    </a>
+    <div class="brand-tagline">
+      Архитектор<br>Нейро-Сотрудников
+    </div>
   </div>
 </header>
 
@@ -312,23 +467,41 @@ footer a { color: var(--gold); text-decoration: none; }
   <!-- HERO -->
   <section class="hero" style="border-top: none;">
     <div class="hero-text">
-      <div class="symbol">◆ ◇ ⬥</div>
-      <h1>Елизавета.<br><em>Продаёт всё.</em></h1>
-      <p class="lead">
-        Цифровой партнёр НЕЙРОЗАВОДА с именем, лицом и характером.
-        <strong>Войдёт в роль продавца любого вашего товара или услуги за 30 секунд</strong> —
-        без скриптов, без выгорания, без выходных.
+      <span class="demo-badge"><span class="dot"></span>Демо-версия · онлайн</span>
+      <h1>
+        <span class="name">Я Елизавета</span>
+        <span class="role">Универсальный ИИ-Продавец</span>
+      </h1>
+      <p class="slogan">
+        Я продам всё. <span class="accent">От батона до бетона.</span>
       </p>
+      <div class="lead">
+        <p>
+          <strong>Не верите? Проверьте сами.</strong>
+          Назовите любой товар или услугу — войду в роль продавца за 30 секунд
+          и доведу вас до сделки.
+        </p>
+        <p>
+          Я цифровой умный очеловеченный ИИ-Сотрудник — со&nbsp;своим именем, лицом и&nbsp;характером,
+          созданный <strong>Юлией Заверюхой</strong>. Архитектором ИИ-Сотрудников.
+        </p>
+        <p>
+          Каждый ИИ-Продавец настраивается индивидуально под ваш бизнес, услугу и&nbsp;экспертность.
+        </p>
+      </div>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://t.me/neurozavod_demo_bot?start=seller" target="_blank" rel="noopener">
-          Протестировать Елизавету
+          <span>Бросить мне вызов</span>
+          <svg class="arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
         </a>
         <a class="btn btn-ghost" href="https://t.me/zaveruhaprofi" target="_blank" rel="noopener">
-          Бесплатный аудит
+          <span>Бесплатный аудит у&nbsp;Юлии</span>
+          <svg class="arrow" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
         </a>
       </div>
     </div>
     <div class="hero-portrait">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
       <img src="assets/4c63a21b5166c564648accbae8780dcc_4659a138-513e-4258-ae0d-46e7e317abb0.jpg" alt="Елизавета — ИИ-Продавец НЕЙРОЗАВОДА">
     </div>
   </section>
