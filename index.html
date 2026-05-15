@@ -310,10 +310,13 @@ section .section-lead {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
 }
-@media (max-width: 700px) {
+@media (max-width: 980px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
   .cards { grid-template-columns: 1fr; }
 }
 .card {
@@ -563,7 +566,7 @@ footer a { color: var(--gold); text-decoration: none; }
   <section id="skills">
     <h2>Что я <em>умею</em></h2>
     <p class="section-lead">
-      Четыре вещи, которые я делаю лучше живого продавца — потому что не устаю, не забываю и не работаю по скрипту.
+      Шесть вещей, которые я делаю лучше живого продавца — потому что не устаю, не забываю, не выгораю и работаю не по скрипту, а от сердца.
     </p>
     <div class="cards">
 
@@ -579,6 +582,20 @@ footer a { color: var(--gold); text-decoration: none; }
         <div class="card-stat">0 <span class="card-stat-unit">скриптов</span></div>
         <h3>Говорю как человек</h3>
         <p>Без роботизированных фраз и «давайте разберёмся». Слышу клиента раньше, чем говорю. Шучу тонко, не давлю, закрываю на эмоции и результат — а не на «успей до полуночи».</p>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">◆ Возражения</span>
+        <div class="card-stat">🧊 → 🔥</div>
+        <h3>Растоплю самого ледяного</h3>
+        <p>«Дорого», «подумаю», «не сейчас», «у конкурента дешевле» — отрабатываю каждое возражение мягко, профессионально, с душой. Веду по-человечески даже самого холодного клиента к покупке.</p>
+      </div>
+
+      <div class="card">
+        <span class="card-tag">◆ Реальные цены</span>
+        <div class="card-stat">20+ <span class="card-stat-unit">ниш в памяти</span></div>
+        <h3>Знаю рынок, не выдумываю</h3>
+        <p>Помню реальные коридоры цен по 20+ нишам РФ 2026. Никогда не назову демпинговую цифру, не подорву авторитет вашего бренда. Если ниша новая — даю диапазон и собираю ТЗ.</p>
       </div>
 
       <div class="card">
